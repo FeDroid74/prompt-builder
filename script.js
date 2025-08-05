@@ -21,7 +21,8 @@ async function generatePrompt() {
   if (requirements.length > 0) {
     prompt += `Дополнительные требования: ${requirements.join(', ')}. `;
   }
-  prompt += `Сформулируй ответ согласно указанным параметрам.`;
+  prompt += `Сформулируй ответ согласно указанным параметрам. `;
+  prompt += `Пиши не больше 300 символов.`;
 
   // Вывод промпта в поле
   document.getElementById("output").value = prompt;
@@ -35,12 +36,11 @@ async function generatePrompt() {
         content: prompt
       }
     ],
-    max_completion_tokens: 32000
+    max_completion_tokens: 300
   };
 
   // Очистка поля ответа
-  document.getElementById("response").textContent = '';
-  document.getElementById("loading").style.display = "flex";
+  document.getElementById("response").textContent = "⏳ Ждём ответ от модели...";
 
   try {
     const response = await fetch(API_URL, {
@@ -67,12 +67,21 @@ async function generatePrompt() {
 }
 
 function copyPrompt() {
-  const output = document.getElementById("output");
-  if (!output.value) return alert("Сначала сгенерируй промпт!");
+  const response = document.getElementById("response");
+  const text = response.textContent.trim();
 
-  output.select();
-  output.setSelectionRange(0, 99999);
+  if (!text || text === 'Пока ничего нет.' || text.startsWith('⏳')) {
+    alert("Сначала сгенерируй ответ от модели.");
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
   document.execCommand("copy");
+  document.body.removeChild(textarea);
 
-  alert("Промпт скопирован!");
+  alert("Ответ от модели скопирован!");
 }
