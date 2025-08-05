@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    max-width: 615px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;      
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+textarea {
+    width: 96.5%;
+    padding: 8px;
+    margin-top: 5px;
+}
+    
+.radio-group, .checkbox-group {
+    margin-top: -10px;
+}
+    
+.radio-group label, .checkbox-group label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+#response {
+    max-width: 100%;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    overflow-wrap: break-word;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#output {
+    max-width: 100%;
+    margin-top: 20px;
+    white-space: pre-wrap;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+}

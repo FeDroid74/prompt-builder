@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Конструктор промптов ChatGPT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Конструктор промптов для ChatGPT</h1>
+
+    <label for="taskType">Тип задачи:</label>
+    <select id="taskType">
+      <option value="написание статьи">Написание текста/статьи</option>
+      <option value="создание кода">Создание кода</option>
+      <option value="анализ текста">Перевод</option>
+      <option value="ответ на вопрос">Ответ на вопрос</option>
+    </select>
+
+    <label for="description">Описание задачи:</label>
+    <textarea id="description" rows="4" placeholder="Опиши, что нужно сделать..."></textarea>
+
+    <label>Тон общения:</label>
+    <div class="radio-group">
+      <label><input type="radio" name="tone" value="дружелюбный" checked>Дружелюбный</label>
+      <label><input type="radio" name="tone" value="официальный">Официальный</label>
+      <label><input type="radio" name="tone" value="нейтральный">Нейтральный</label>
+    </div>
+
+    <label>Дополнительные требования:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" value="добавь комментарии">Добавь комментарии</label>
+      <label><input type="checkbox" value="избегай жаргона">Избегай жаргона</label>
+      <label><input type="checkbox" value="ответ на русском языке">Ответ на русском языке</label>
+    </div>
+
+    <button onclick="generatePrompt()">Сгенерировать промпт</button>
+    <textarea id="output" rows="6" readonly placeholder="Здесь появится готовый промпт..."></textarea>
+    <h3>Ответ от модели:</h3>
+    <pre id="response">Пока ничего нет.</pre>
+    <button onclick="copyPrompt()">Скопировать</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>    
